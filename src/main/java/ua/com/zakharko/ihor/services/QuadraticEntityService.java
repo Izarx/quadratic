@@ -1,6 +1,6 @@
-package services;
+package ua.com.zakharko.ihor.services;
 
-import model.QuadraticEntity;
+import ua.com.zakharko.ihor.model.QuadraticEntity;
 
 public interface QuadraticEntityService {
 

@@ -1,4 +1,5 @@
-package model;
+package ua.com.zakharko.ihor.model;
+
 
 import javax.persistence.*;
 

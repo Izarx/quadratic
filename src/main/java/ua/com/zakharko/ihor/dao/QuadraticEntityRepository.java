@@ -1,12 +1,13 @@
-package dao;
+package ua.com.zakharko.ihor.dao;
 
 
-import model.QuadraticEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import ua.com.zakharko.ihor.model.QuadraticEntity;
 
 @Repository
-public interface QuadraticEntityRepository extends CrudRepository<QuadraticEntity, Long> {
+public interface QuadraticEntityRepository extends CrudRepository<QuadraticEntity, Long>
+{
 
     QuadraticEntity findByABC(Integer a, Integer b, Integer c);
 
