@@ -9,6 +9,4 @@ import ua.com.zakharko.ihor.model.QuadraticEntity;
 public interface QuadraticEntityRepository extends CrudRepository<QuadraticEntity, Long>
 {
 
-    QuadraticEntity findByABC(Integer a, Integer b, Integer c);
-
 }

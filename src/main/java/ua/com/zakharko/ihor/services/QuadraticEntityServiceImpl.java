@@ -9,13 +9,7 @@ import ua.com.zakharko.ihor.model.QuadraticEntity;
 public class QuadraticEntityServiceImpl implements QuadraticEntityService {
 
     @Autowired
-    QuadraticEntityRepository repository;
-
-    @Override
-    public QuadraticEntity findByABC(final Integer a, final Integer b, final Integer c)
-    {
-        return repository.findByABC(a, b, c);
-    }
+    private QuadraticEntityRepository repository;
 
     @Override
     public QuadraticEntity save(final QuadraticEntity quadraticEntity)
