@@ -16,4 +16,10 @@ public class QuadraticEntityServiceImpl implements QuadraticEntityService {
     {
         return repository.save(quadraticEntity);
     }
+
+    @Override
+    public QuadraticEntity getById(final Long id)
+    {
+        return repository.findById(id).orElse(null);
+    }
 }

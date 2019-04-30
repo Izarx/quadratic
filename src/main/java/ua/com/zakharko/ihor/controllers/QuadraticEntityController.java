@@ -22,9 +22,6 @@ public class QuadraticEntityController {
     @Value("${view.message}")
     private String message2;
 
-    @Value("${error.message}")
-    private String errorMessage;
-
     @GetMapping(value = { "/", "/calculate"})
     public String calculate (Model model) {
         model.addAttribute("message1", message1);
@@ -35,10 +32,13 @@ public class QuadraticEntityController {
 
     @PostMapping("/calculate")
     public String saveQuadratic (Model model, @ModelAttribute ("form") QuadraticEntityForm quadraticEntityForm){
-        QuadraticEntity quadratic = new QuadraticEntity(quadraticEntityForm.getA(), quadraticEntityForm.getB(), quadraticEntityForm.getC());
+        Integer a = quadraticEntityForm.getA();
+        Integer b = quadraticEntityForm.getB();
+        Integer c = quadraticEntityForm.getC();
+        QuadraticEntity quadratic = new QuadraticEntity(a, b, c);
         if(quadratic.setAnswear()) {
             quadraticEntityService.save(quadratic);
-            return "redirect:/result";
+            return "redirect:/result?id=" + quadratic.getId();
         }
         else {
             return "redirect:/error";
@@ -46,15 +46,13 @@ public class QuadraticEntityController {
     }
 
     @GetMapping("/result")
-    public String result (Model model){
-        model.addAttribute("result", errorMessage);
-        return "result";
-    }
-
-    @GetMapping("/error")
-    public String error (Model model){
-        model.addAttribute("error", errorMessage);
-        return "error";
+    public String resultPage (Model model, @RequestParam("id") Long id){
+        QuadraticEntity quadraticEntity = quadraticEntityService.getById(id);
+        if (quadraticEntity != null) {
+            model.addAttribute("quadratic", quadraticEntity);
+            return "result";
+        }
+        else return "redirect:/error";
     }
 
 }
