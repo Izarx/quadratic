@@ -1,4 +1,4 @@
-package ua.com.zakharko.ihor.controllers.forms;
+package ua.com.zakharko.ihor.controllers;
 
 public class QuadraticEntityForm {
 

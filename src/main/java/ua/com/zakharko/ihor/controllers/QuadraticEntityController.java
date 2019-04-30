@@ -2,7 +2,6 @@ package ua.com.zakharko.ihor.controllers;
 
 
 import org.springframework.web.bind.annotation.*;
-import ua.com.zakharko.ihor.controllers.forms.QuadraticEntityForm;
 import ua.com.zakharko.ihor.model.QuadraticEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
