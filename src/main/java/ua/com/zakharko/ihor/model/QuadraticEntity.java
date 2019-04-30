@@ -39,13 +39,16 @@ public class QuadraticEntity
     }
 
     public Boolean setAnswear(){
-        if (a != null && b != null && c != null){
-            x1 = (-b + Math.sqrt(calculateD()))/(2*a);
-            x2 = (-b - Math.sqrt(calculateD()))/(2*a);
-            if (x1.equals(x2)) {
-                x2 = null;
+        if ((a != null && a != 0) && b != null && c != null){
+            if (calculateD() >= 0){
+                x1 = (-b + Math.sqrt(calculateD()))/(2*a);
+                x2 = (-b - Math.sqrt(calculateD()))/(2*a);
+                if (x1.equals(x2)) {
+                    x2 = null;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
         else return false;
     }
